@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="style.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Typing Test</title>
+  <link rel="stylesheet" href="style.css">
 </head>
- <body>
-    
-    <header class="main-header">
-      <h1>My Website</h1>
-      <button class="header-btn">Login</button>
-    </header>
-    <div class="main">
-        <div class="center-box">
-            <input type="text" placeholder="Enter something..." class="center-input">
-        </div>
-        <div class="box">
-            <h3>Your performance WPM</h3>
-            <p></p>
-        </div>
-        
-        <div class="wrapper">
-            <div class="content-box">
-                <div class="content">
-                    <ul class="result-details">
-                        <li class="time">
-                            <p>Time Left:</p>
-                            <span><b>60</b>s</span>
-                        </li>
-                        <li class="mistake">
-                            <p>Mistakes:</p>
-                            <span>0</span>
-                        </li>
-                        <li class="wpm">
-                            <p>WPM:</p>
-                            <span>0</span>
-                        </li>
-                        <li class="cpm">
-                            <p>CPM:</p>
-                            <span>0</span>
-                        </li>
-                    </ul>
-                    <button>Try Again</button>
-                </div>
-            </div>
-        </div>
+<body>
+  <header class="main-header">
+    <h1>Typing Proficiency</h1>
+    <button class="header-btn">Login</button>
+  </header>
+
+  <main class="main">
+    <div class="center-box">
+      <!-- Random test text (centered above textarea) -->
+      <div class="test-text" id="testText">Loading text...</div>
+
+      <!-- Typing area: user types here -->
+      <textarea class="center-input" id="typingArea" placeholder="Start typing the text shown above..."></textarea>
     </div>
+
+    <div class="wrapper">
+      <div class="content">
+        <ul class="result-details" aria-live="polite">
+          <li class="time">
+            <div>Time Left</div>
+            <span id="timeLeft">60</span>
+          </li>
+          <li class="mistake">
+            <div>Mistakes</div>
+            <span id="mistakes">0</span>
+          </li>
+          <li class="wpm">
+            <div>WPM</div>
+            <span id="wpm">0</span>
+          </li>
+          <li class="cpm">
+            <div>CPM</div>
+            <span id="cpm">0</span>
+          </li>
+        </ul>
+
+        <div class="box">
+          <p id="displayWPM">0 WPM</p>
+          <div style="height:6px"></div>
+          <button id="tryAgain">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
