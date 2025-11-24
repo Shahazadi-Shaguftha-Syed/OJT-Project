@@ -173,4 +173,5 @@ function showResults() {
 
 closePopup.addEventListener("click", () => {
   resultPopup.classList.add("hidden");
+  location.reload();
 });
