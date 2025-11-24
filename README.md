@@ -1,26 +1,41 @@
-# KeyRush
-**KeyRush**
+**⚡ KeyRush — Typing Speed Tester**
 
-A simple typing speed test built using HTML, CSS, and JavaScript.
+KeyRush is a clean and interactive typing speed test built using HTML, CSS, and JavaScript.
+It helps users measure their typing speed, accuracy, and overall performance in real time.
 
-It shows your WPM, CPM, mistakes, and highlights correct/wrong characters in real time.
 
-**Features**
 
-60-second typing test
+**🚀Features**
 
-Real-time mistake detection
 
-Highlights correct and wrong characters
+⏱ 60-second typing test
 
-Shows WPM, CPM, and total mistakes
+🎯 Instant character-by-character accuracy check
 
-Random paragraph generator
+✔️ Correct characters highlighted
 
-Popup result box at the end
+❌ Incorrect characters clearly marked
 
-Dark/Light mode toggle
+📊 Live WPM & CPM updates
 
-**Technologies Used**
+🔁 Try Again button to restart quickly
 
-HTML , CSS , JavaScript
+🎲 Random paragraphs for every test
+
+🪟 Result popup when time ends
+
+🌗 Light/Dark mode toggle
+
+
+
+
+**🛠️ Tech Stack**
+
+HTML, CSS, JavaScript 
+
+
+
+
+**💡 Why KeyRush?**
+
+A simple, lightweight, and user-friendly typing test designed to help users improve speed and accuracy while keeping the interface clean and distraction-free.
