@@ -15,6 +15,13 @@ const wpmEl = document.getElementById("wpm");
 const cpmEl = document.getElementById("cpm");
 const displayWPM = document.getElementById("displayWPM");
 const tryAgainBtn = document.getElementById("tryAgain");
+const resultPopup = document.getElementById("resultPopup");
+const popupWPM = document.getElementById("popupWPM");
+const popupMistakes = document.getElementById("popupMistakes");
+const popupCPM = document.getElementById("popupCPM");
+const closePopup = document.getElementById("closePopup");
+
+
 
 const TOTAL_TIME = 60; 
 let timerInterval = null;
@@ -68,7 +75,9 @@ function startTimerOnce(){
       clearInterval(timerInterval);
       timerInterval = null;
       typingArea.disabled = true;
-    }
+      showResults();
+    }    
+
     computeStats();
   }, 1000);
 }
@@ -105,17 +114,23 @@ function computeStats(){
     // We want to highlight correct characters by position, not by counting mistakes.
     // Another approach: highlight all indices where typed char equals ref char.
     let html = "";
-    //
-    for (let i = 0; i < currentText.length; i++){
-      const ch = escapeHtml(currentText[i]);
-      if (i < typed.length && typed[i] === currentText[i]) {
-        html += `<pre style="color:var(--neon)">${ch}</pre>`;
+    for (let i = 0; i < currentText.length; i++) {
+      const refCh = currentText[i];
+      const typedCh = typed[i];
+      if (typedCh === refCh) {
+        // correct
+        html += `<span style="color:var(--neon); white-space:pre">${escapeHtml(refCh)}</span>`;
+      } else if (typedCh !== undefined) {
+        // wrong
+        html += `<span style="color:#f55; white-space:pre">${escapeHtml(refCh)}</span>`;
       } else {
-        html += `<pre>${ch}</pre>`;
-      
+        // not typed yet
+        html += `<span style="white-space:pre">${escapeHtml(refCh)}</span>`;
       }
     }
     testTextEl.innerHTML = html;
+
+
 }
 
 // ====== Events ======
@@ -142,5 +157,20 @@ typingArea.addEventListener("keydown", (e) => {
 const toggle = document.getElementById("toggleBtn");
 
     toggle.addEventListener("change", () => {
-      document.body.classList.toggle("dark", toggle.checked);
+      document.body.classList.toggle("light", toggle.checked);
     });
+
+
+
+// popup card
+function showResults() {
+  popupWPM.textContent = "WPM: " + wpmEl.textContent;
+  popupMistakes.textContent = "Mistakes: " + mistakesEl.textContent;
+  popupCPM.textContent = "CPM: " + cpmEl.textContent;
+
+  resultPopup.classList.remove("hidden");
+}
+
+closePopup.addEventListener("click", () => {
+  resultPopup.classList.add("hidden");
+});
