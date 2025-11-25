@@ -6,71 +6,97 @@
   <title>Typing Test</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Italiana&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="main-header">
-    <h1>Typing Proficiency</h1>
-    <div class="sub-head">
-      <label class="switch">
-        <input type="checkbox" id="toggleBtn">
-        <span class="slider"></span>
-      </label>
-      <button class="header-btn">Login</button>
-    </div>
-    
-  </header>
+  <div id="pageContainer" class="page-drop">
+
+    <header class="main-header">
+
+      <h1>KeyRush</h1>
+      <div class="sub-head">
+        <label class="switch">
+          <input type="checkbox" id="toggleBtn">
+          <span class="slider"></span>
+        </label>
+        <button class="header-btn">Login</button>
+      </div> 
+
+    </header>
   
 
-  <main class="main">
-    <div class="center-box">
-      <!-- Random test text (centered above textarea) -->
-      <div class="test-text" id="testText">Loading text...</div>
+    <main class="main">
+      <div class="center-box">
+        <!-- Random test text (centered above textarea) -->
+        <div class="test-text" id="testText">Loading text...</div>
+        <!-- Typing area: user types here -->
+        <textarea class="center-input" id="typingArea" placeholder="Start typing the text shown above..."></textarea>
+      </div>
 
-      <!-- Typing area: user types here -->
-      <textarea class="center-input" id="typingArea" placeholder="Start typing the text shown above..."></textarea>
-    </div>
-
-    <div class="wrapper">
-      <div class="content">
-        <ul class="result-details" aria-live="polite">
-          <li class="time">
-            <div>Time Left</div>
-            <span id="timeLeft">60</span>
-          </li>
-          <li class="mistake">
-            <div>Mistakes</div>
-            <span id="mistakes">0</span>
-          </li>
-          <li class="wpm">
-            <div>WPM</div>
-            <span id="wpm">0</span>
-          </li>
-          <li class="cpm">
-            <div>CPM</div>
-            <span id="cpm">0</span>
-          </li>
-        </ul>
-
-        <div class="box">
-          <p id="displayWPM">0 WPM</p>
-          <div style="height:6px"></div>
-          <button id="tryAgain">Try Again</button>
+      <div class="wrapper">
+        <div class="content">
+          <ul class="result-details" aria-live="polite">
+            <li class="time">
+              <div>Time Left</div>
+              <span id="timeLeft">60</span>
+            </li>
+            <li class="mistake">
+              <div>Mistakes</div>
+              <span id="mistakes">0</span>
+            </li>
+            <li class="wpm">
+              <div>WPM</div>
+              <span id="wpm">0</span>
+            </li>
+            <li class="cpm">
+              <div>CPM</div>
+              <span id="cpm">0</span>
+            </li>
+          </ul>
+          <div class="box">
+            <p id="displayWPM">0 WPM</p>
+            <div style="height:6px"></div>
+            <button id="tryAgain">Try Again</button>
+          </div>
         </div>
       </div>
+    </main>
+  </div>
+
+    <!-- intro popup -->
+  <div id="startPopup" class="start-popup">
+    <div class="start-popup-content">
+      <h2>Welcome to KeyRush!</h2>
+      <p style="margin-top:10px;">
+        Improve your typing speed and accuracy with this quick test.
+      </p>
+
+      <h3 style="margin-top:15px;">Instructions:</h3>
+      <ul style="text-align:left; margin:10px auto; width:100%;">
+        <li>The timer starts as soon as you begin typing.</li>
+        <li>Type the paragraph exactly as shown above.</li>
+        <li>Correct letters are highlighted.</li>
+        <li>Mistakes turn red as you type.</li>
+        <li>A results popup appears when time is up.</li>
+        <li>You can try again anytime to get a new paragraph.</li>
+      </ul>
+
+      <button id="startBtn">Start</button>
     </div>
-  </main>
+  </div>
+
+  <!-- result pop up -->
   <div id="resultPopup" class="popup hidden">
     <div class="popup-content">
       <h2>Results!</h2>
       <p id="popupWPM"></p>
       <p id="popupMistakes"></p>
       <p id="popupCPM"></p>
-
       <button id="closePopup">Close</button>
     </div>
   </div>
+
 
   <script src="script.js"></script>
 </body>

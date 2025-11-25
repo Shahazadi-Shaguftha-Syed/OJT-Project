@@ -14,18 +14,20 @@
   --shadow:  rgba(122, 55, 80, 0.236);
   --popbg: #ffbbc8f8;
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box; transition: 0.5s; font-family: "Italiana", sans-serif;}
 body{
   margin:0;
   background: var(--bg);
   color:var(--muted);
   transition: 0.5s;
 }
-.libre-caslon-display-regular {
-  font-family: "Libre Caslon Display", serif;
+
+.italiana-regular {
+  font-family: "Italiana", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
+
 
 .main-header{
   background-color: var(--panel);
@@ -51,8 +53,8 @@ body{
   color: var(--neon);
   cursor: pointer;
 }
-.header-btn:hover, #tryAgain:hover{
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.727);
+.header-btn:hover, #tryAgain:hover, #startBtn:hover{
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.309);
 }
 #tryAgain{
   border-radius: 6px;
@@ -103,7 +105,13 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
+  white-space: pre-wrap;      
+  overflow-wrap: break-word; 
+  word-break: break-word;    
+  display: flex;
+  flex-wrap: wrap; 
 }
+
 
 /* typing area */
 .center-input{
@@ -119,6 +127,7 @@ body{
   outline:none;
   box-shadow:0 0 28px rgba(0,240,255,0.06);
   resize:vertical;
+  font-family: "Courier Prime", monospace;
 }
 .center-input::placeholder{ color: rgba(255, 255, 255, 0.571) }
 /* stats box */
@@ -260,4 +269,56 @@ input:checked + .slider:before {
 }
 .popup-content button:hover {
   box-shadow: 0 0 14px var(--shadow);
+}
+
+/* instructions part */
+.start-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+}
+
+.start-popup-content {
+  background: var(--popbg);
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  /* border: 2px solid #4b9fff; */
+  box-shadow: 0 0 20px rgba(184, 209, 253, 0.51);
+  max-width: 500px;
+}
+
+.start-popup-content button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: rgb(184, 209, 253, 0.51);
+}
+
+/* Blur the page before start */
+body.blur #pageContainer {
+  filter: blur(6px);
+  transition: filter 0.7s ease;
+}
+
+/* PAGE DROP ANIMATION */
+#pageContainer {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+#pageContainer.show {
+  opacity: 1;
+  transform: translateY(0);
 }

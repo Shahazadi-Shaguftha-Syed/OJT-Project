@@ -1,10 +1,10 @@
 // ====== Data ======
 const paragraphs = [
-  "JavaScript makes web pages interactive and dynamic. Practice often and build small projects.",
-  "Typing fast is a useful skill in programming and data entry. Accuracy matters more than speed at first.",
-  "Practice regularly to improve your typing speed and accuracy. Short daily sessions beat long occasional ones.",
-  "Coding challenges help you grow as a developer every day. Build, break, and fix things to learn.",
-  "Front end development involves HTML, CSS and JavaScript. Create small UI projects to show your skills."
+  "Learning to code becomes much easier when you build small projects consistently. Each project teaches you something new and strengthens your problem-solving skills.",
+  "Good communication is just as important as technical knowledge in the tech world. Clear explanations help teams collaborate better and avoid misunderstandings.",
+  "Small habits, repeated daily, become powerful over time. Even ten minutes of focused practice can make a noticeable difference in your skills.",
+  "Exploring different programming languages opens your mind to new ways of thinking. Every language has its own style and strengths that shape how you build solutions.",
+  "Staying curious is one of the best traits a developer can have. When you experiment and ask questions, you naturally discover things others overlook."
 ];
 // ====== Elements ======
 const testTextEl = document.getElementById("testText");
@@ -42,10 +42,7 @@ function loadRandomText() {
 }
 
 function escapeHtml(str){
-  //
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  // return str
-  
 }
 
 function resetStats(){
@@ -111,26 +108,22 @@ function computeStats(){
     // update highlighted test text: correct part colored neon
     const correctPart = escapeHtml(currentText.slice(0, correctChars + (lenTyped > lenRef ? 0 : 0)));
     const nextPart = escapeHtml(currentText.slice(correctChars));
-    // We want to highlight correct characters by position, not by counting mistakes.
-    // Another approach: highlight all indices where typed char equals ref char.
     let html = "";
     for (let i = 0; i < currentText.length; i++) {
       const refCh = currentText[i];
       const typedCh = typed[i];
       if (typedCh === refCh) {
         // correct
-        html += `<span style="color:var(--neon); white-space:pre">${escapeHtml(refCh)}</span>`;
+        html += `<span style="color:#5bb450; white-space:pre-wrap">${escapeHtml(refCh)}</span>`;
       } else if (typedCh !== undefined) {
         // wrong
-        html += `<span style="color:#f55; white-space:pre">${escapeHtml(refCh)}</span>`;
+        html += `<span style="color:#f55; white-space:pre-wrap">${escapeHtml(refCh)}</span>`;
       } else {
         // not typed yet
-        html += `<span style="white-space:pre">${escapeHtml(refCh)}</span>`;
+        html += `<span style="white-space:pre-wrap">${escapeHtml(refCh)}</span>`;
       }
     }
     testTextEl.innerHTML = html;
-
-
 }
 
 // ====== Events ======
@@ -145,23 +138,13 @@ tryAgainBtn.addEventListener("click", () => {
 });
 
 // load initial text
-loadRandomText();// OPTIONAL: let user press Ctrl+Enter to finish early and stop timer
-typingArea.addEventListener("keydown", (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
-    // stop timer and disable typing
-    if (timerInterval) clearInterval(timerInterval);
-    typingArea.disabled = true;
-  }
-});
+loadRandomText();
 
 const toggle = document.getElementById("toggleBtn");
 
     toggle.addEventListener("change", () => {
       document.body.classList.toggle("light", toggle.checked);
     });
-
-
-
 // popup card
 function showResults() {
   popupWPM.textContent = "WPM: " + wpmEl.textContent;
@@ -174,4 +157,23 @@ function showResults() {
 closePopup.addEventListener("click", () => {
   resultPopup.classList.add("hidden");
   location.reload();
+});
+
+
+
+// Start Popup
+const startPopup = document.getElementById("startPopup");
+const startBtn = document.getElementById("startBtn");
+
+// Disable typing before start
+typingArea.disabled = true;
+
+startBtn.addEventListener("click", () => {
+  startPopup.style.display = "none";
+  typingArea.disabled = false;
+  typingArea.focus();
+});
+
+window.addEventListener("load", () => {
+  document.getElementById("pageContainer").classList.add("show");
 });
