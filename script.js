@@ -176,10 +176,15 @@ function computeStats(finalRun = false){
 
 // ====== Events ======
 typingArea.addEventListener("input", (e) => {
-  // start timer when user first types
   if (!isTiming) startTimerOnce();
   computeStats();
 });
+
+typingArea.addEventListener("paste", function (e) {
+  e.preventDefault();
+  alert("To ensure fair typing performance, paste actions are disabled in the input area.");
+});
+
 
 tryAgainBtn.addEventListener("click", () => {
   loadRandomText(); // includes resetting stats
