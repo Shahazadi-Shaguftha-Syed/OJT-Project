@@ -708,3 +708,21 @@ body.blur #pageContainer {
   color: #fff;
   box-shadow: 0 0 0 4px var(--shadow-lg);
 }
+
+.special-elite-regular {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+#typingChart {
+  width: 100%;
+  height: 260px;
+  max-height: 260px;
+  display: block;
+}
+.chart-container {
+  width: 100%;
+  height: 260px;
+  position: relative;
+}
+ 
