@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>KeyRush</title>
+  <link rel="icon" type="image/png" href="./images/logo.png">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +30,7 @@
   
 
     <main class="main">
-      <!-- TIMER SELECTOR -->
+      <!-- TIMER-->
       <div class="timer-select">
       <p>Pick how long you want to type:</p>
         <button class="time-btn" data-time="10">10s</button>
@@ -70,10 +71,7 @@
             <button id="tryAgain"><span class="btn-icon">↻</span>Try Again</button>
           </div>
         </div>
-        <div class="chart-container">
-          <h3 style="margin-top:20px;">Your Performance</h3>
-          <canvas id="resultChart" height="120"></canvas>
-        </div>
+        
       </div>
     </main>
   </div>
@@ -111,8 +109,13 @@
         <p id="popupWPM"></p>
         <p id="popupMistakes"></p>
         <p id="popupCPM"></p>
+        <p id="popupAccuracy">Accuracy: <span id="accuracy">0%</span></p>
       </div>
-      <!-- <button >Close</button> -->
+      
+      <div class="chart-container">
+        <canvas id="typingChart"></canvas>
+      </div>
+      
       <button id="TryAgainPopUp"><span class="btn-icon">↻</span>Try Again</button>
     </div>
   </div>
