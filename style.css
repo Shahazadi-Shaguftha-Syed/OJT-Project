@@ -725,3 +725,10 @@ body.blur #pageContainer {
   position: relative;
 }
  
+
+.test-text,
+.test-text span {
+  font-family: "Italiana", sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
