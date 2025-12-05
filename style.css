@@ -214,7 +214,6 @@ input:checked + .slider:before {
   background: var(--panel);
   border: 1px solid var(--border);
   color: var(--text-primary);
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
   font-size: 1.125rem;
   line-height: 1.8;
   text-align: left;
